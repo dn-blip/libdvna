@@ -1,0 +1,48 @@
+// libdvna/codec.h -- The header file for the codec portion of libdvna.
+// Handles encoding and decoding of audio files, with support for user-defined codecs.
+// Author: Daniel Nzekwe
+// License: MIT License
+
+#ifndef LIBDVNA_CODEC
+#define LIBDBVNA_CODEC
+
+// Try not to depend on any other headers in this file.
+
+typedef struct dvna_result {
+	int code; // The result code
+	const char* message; // A message describing the result
+} dvna_result_t;
+
+
+
+
+
+typedef struct codec_t {
+	const char* name; // The name of the codec
+	const char* description; // A description of the codec
+	int (*encode)(const FILE* input); // Function pointer for encoding
+	int (*decode)(const FILE* input); // Function pointer for decoding
+} codec_t;
+
+// If you want to add a codec, you can do so by defining the codec_t structure's fields.
+// EXAMPLE:
+// int my_encode (const FILE* input) {
+//     // Your encoding logic here
+//     return 0; // Return 0 on success
+// }
+// int my_decode (const FILE* input) {
+	// Your decoding logic here
+	//     return 0; // Return 0 on success
+// }
+// codec_t my_codec = {
+//     .name = "My Codec",
+//     .description = "My custom codec",
+//     .encode = my_encode,
+//     .decode = my_decode
+// };
+
+dvna_result register_codec(codec_t* codec);
+dvna_result unregister_codec(codec_t* codec);
+
+
+#endif
