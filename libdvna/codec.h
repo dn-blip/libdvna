@@ -28,24 +28,6 @@ typedef struct codec_t {
 } codec_t;
 
 // If you want to add a codec, you can do so by defining the codec_t structure's fields.
-// EXAMPLE:
-// int my_encode (const FILE* input) {
-//     // Your encoding logic here
-//     return 0; // Return 0 on success
-// }
-// int my_decode (const FILE* input) {
-	// Your decoding logic here
-	//     return 0; // Return 0 on success
-// }
-// codec_t my_codec = {
-//     .name = "My Codec",
-//     .description = "My custom codec",
-//     .encode = my_encode,
-//     .decode = my_decode
-// };
-
-dvna_result register_codec(codec_t* codec);
-dvna_result unregister_codec(codec_t* codec);
 
 
 #endif
