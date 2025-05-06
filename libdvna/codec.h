@@ -8,9 +8,12 @@
 
 // Try not to depend on any other headers in this file.
 
+// This struct has two fields:
+// int code; the result code (0 for success, -1 for failure)
+//const char* message;  A message describing the result.
 typedef struct dvna_result {
-	int code; // The result code
-	const char* message; // A message describing the result
+	int code; 
+	const char* message; 
 } dvna_result_t;
 
 
