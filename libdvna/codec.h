@@ -16,18 +16,4 @@ typedef struct dvna_result {
 	const char* message; 
 } dvna_result_t;
 
-
-
-
-
-typedef struct codec_t {
-	const char* name; // The name of the codec
-	const char* description; // A description of the codec
-	int (*encode)(const FILE* input); // Function pointer for encoding
-	int (*decode)(const FILE* input); // Function pointer for decoding
-} codec_t;
-
-// If you want to add a codec, you can do so by defining the codec_t structure's fields.
-
-
 #endif
